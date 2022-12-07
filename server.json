@@ -1,0 +1,28 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2022-12-07T20:52:07.670Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburguer",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 50,
+      "createdAt": "2022-10-07T12:20:07.670Z"
+    },
+    {
+      "id": 3,
+      "description": "Mercado",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 1000,
+      "createdAt": "2022-08-07T12:10:07.670Z"
+    }
+  ]
+}

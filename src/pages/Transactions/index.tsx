@@ -1,39 +1,36 @@
+import { useContext, useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
+import { TransactionsContext } from "../../context/TransactionsContext";
+import { dateFormatter, priceFormatter } from "../../ultils/formatter";
 import { SearchForm } from "./components/SearchForm";
 import { PriceHightLight, TransactionsContainer, TransactionsTable} from './styles'
 
 export function Transactions() {
+  const {transactions} = useContext(TransactionsContext)
+
   return (
     <div>
       <Header/>
       <Summary/>
 
-
       <TransactionsContainer>
         <SearchForm/>
         <TransactionsTable>
           <tbody>
-            <tr>
-              <td width="50%">Desenvolvimento de site</td>
-              <td>
-                <PriceHightLight variant="income">
-                  R$ 12.000,00  
-                </PriceHightLight>
-              </td>
-              <td>Venda</td>
-              <td>13/04/2022</td>
-            </tr>
-            <tr>
-              <td>Hamburguer</td>
-              <td>
-                <PriceHightLight variant="outcome">
-                  -R$ 98,00  
-                </PriceHightLight>
-              </td>
-              <td>Venda</td>
-              <td>13/04/2022</td>
-            </tr>
+            {transactions.map(transaction => (
+                <tr key={transaction.id}>
+                  <td width="50%">{transaction.description}</td>
+                  <td>
+                    <PriceHightLight variant={transaction.type}>
+                      {transaction.type === 'outcome' && '- ' }
+                      {priceFormatter.format(transaction.price)}  
+                    </PriceHightLight>
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
+                </tr>
+            ))}
           </tbody>
         </TransactionsTable>
       </TransactionsContainer>
