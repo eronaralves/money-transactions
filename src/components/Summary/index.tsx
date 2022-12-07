@@ -5,7 +5,7 @@ import { SummaryCard, SummaryContainer } from "./styles";
 
 
 export function Summary() {
-  const {income, outcome,total} = useSummary()
+  const {income, outcome, total} = useSummary()
 
   return (
     <SummaryContainer>

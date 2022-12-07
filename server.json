@@ -23,6 +23,14 @@
       "category": "Alimentação",
       "price": 1000,
       "createdAt": "2022-08-07T12:10:07.670Z"
+    },
+    {
+      "category": "Trabalho",
+      "description": "Celular",
+      "price": 5000,
+      "type": "outcome",
+      "createdAt": "2022-12-07T21:31:59.950Z",
+      "id": 4
     }
   ]
 }
